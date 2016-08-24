@@ -1,0 +1,16 @@
+<h1>Lists</h1>
+
+<% if @lists.any? %>
+	<% @lists.each do |list| %>
+		<% if list.list_id.blank? %>
+			<%= link_to list.name, list_path(list) %>
+		<% end %>
+	<br>
+	<% end %>
+<% else %>
+	<% 'No lists to show. Please create a new list.' %>
+<% end %>
+
+<%= link_to 'New list', new_list_path %>
+
+

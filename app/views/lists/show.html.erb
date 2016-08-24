@@ -1,0 +1,29 @@
+<h2>List: <%= @list.name %> </h2>
+
+<%= @list.description %>
+<br>
+<%= @list.status %>
+<br>
+<br>
+<h3> Tasks and Associated Lists </h3>
+<% if @list.tasks.any? %>
+	<% @list.tasks.each do |task| %>
+		<h5>Task:<%= link_to task.name, task_path(task) %></h5>
+		<%= link_to 'Switch to list', list_path(task), method: :post %>
+	<% end %>
+<% end %>
+<hr>
+<% if @list_of_lists.any? %>
+	<% @list_of_lists.each do |list| %>
+		<h5>List: <%= link_to list.name, list_path(list) %></h5>
+	<% end %>
+<% else %>
+<p>No current tasks</p>
+<% end %>
+
+
+
+<%= link_to 'New task', new_list_task_path(@list) %>
+<hr>
+
+<%= link_to 'Lists Index', lists_path %>

@@ -1,0 +1,8 @@
+<h1>Tasks for: <%= @list.name %> </h1>
+
+
+<% if @tasks.any? %>
+	<% @tasks.each do |task| %>
+		<% link_to task.name, task_path(task) %>
+		<% end %>
+	<% end %>

@@ -1,0 +1,8 @@
+<h1><%= @task.name %></h1>
+
+<%= @task.description %>
+<br>
+<%= @task.status %>
+
+<%= link_to 'Task list', list_path(@task.list_id) %>
+
